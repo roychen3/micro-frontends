@@ -5,8 +5,8 @@
 Run the following commands in the root directory.
 
 ```bash
-yarn
-yarn start
+npm i
+npm run start
 ```
 
 Both `app1` and `app2` are independently deployed apps:
@@ -17,3 +17,8 @@ Both `app1` and `app2` are independently deployed apps:
 Check out this link below for more examples:
 
 [https://github.com/module-federation/module-federation-examples](https://github.com/module-federation/module-federation-examples)
+
+### add package
+```bash
+npx lerna add <package>
+```

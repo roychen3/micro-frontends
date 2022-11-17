@@ -1,22 +1,25 @@
-import React, {Suspense} from "react";
-const RemoteApp = React.lazy(() => import("app2/App"));
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+import App2 from './routes/App2.jsx';
 
 const App = () => {
   return (
-    <div>
-      <div style={{
-        margin:"10px",
-        padding:"10px",
-        textAlign:"center",
-        backgroundColor:"greenyellow"
-      }}>
-        <h1>App1</h1>
-      </div>
-      <Suspense fallback={"loading..."}>
-        <RemoteApp/>
-      </Suspense>
-    </div>)
-}
-
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              Hello world!
+              <Link to="app2">go to App2</Link>
+            </div>
+          }
+        />
+        <Route path="/app2" element={<App2 />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
