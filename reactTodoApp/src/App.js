@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
 
-import appStyle from './app.scss';
+import appStyles from './app.scss';
 import Todo from './Todo.jsx';
 
 const App = () => {
@@ -20,13 +20,13 @@ class AppElement extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     const styleNode = document.createElement('style');
-    styleNode.innerHTML = appStyle;
+    styleNode.innerHTML = appStyles;
     this.shadowRoot.appendChild(styleNode);
   }
   connectedCallback() {
     console.log('app_1: connectedCallback');
     const rootNode = document.createElement('div');
-    rootNode.id = 'react-app';
+    rootNode.id = 'root';
     ReactDOM.render(<App />, rootNode);
     this.shadowRoot.appendChild(rootNode);
   }

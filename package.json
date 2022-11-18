@@ -4,7 +4,8 @@
   "workspaces": {
     "packages": [
       "reactMenuApp",
-      "reactTodoApp"
+      "reactTodoApp",
+      "vueTodoApp"
     ]
   },
   "scripts": {

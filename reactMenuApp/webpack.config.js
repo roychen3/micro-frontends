@@ -30,6 +30,7 @@ module.exports = {
       name: "reactMenuApp",
       remotes: {
         reactTodoApp: "reactTodoApp@[reactTodoAppUrl]/remoteEntry.js",
+        vueTodoApp: "vueTodoApp@[vueTodoAppUrl]/remoteEntry.js",
       },
       shared: {react: {singleton: true}, "react-dom": {singleton: true}},
     }),
