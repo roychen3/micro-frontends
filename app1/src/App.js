@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-const App2 = React.lazy(() => import('./remoteApps/App2.jsx'));
+const ReactTodoApp = React.lazy(() => import('./remoteApps/ReactTodoApp.jsx'));
 
 const App = () => {
   return (
@@ -11,15 +11,15 @@ const App = () => {
           path="/"
           element={
             <div>
-              <Link to="app2">go to App2</Link>
+              <Link to="react-todo-app">go to ReactTodoApp</Link>
             </div>
           }
         />
         <Route
-          path="/app2"
+          path="/react-todo-app"
           element={
             <Suspense fallback={'loading...'}>
-              <App2 />
+              <ReactTodoApp />
             </Suspense>
           }
         />

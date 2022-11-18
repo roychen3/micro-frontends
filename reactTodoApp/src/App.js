@@ -38,9 +38,9 @@ class AppElement extends HTMLElement {
   }
 }
 
-if (!customElements.get('app-2')) {
+if (!customElements.get('react-todo-app')) {
   console.log('define');
-  customElements.define('app-2', AppElement);
+  customElements.define('react-todo-app', AppElement);
 }
 
 export default App;

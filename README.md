@@ -9,10 +9,10 @@ npm i
 npm run start
 ```
 
-Both `app1` and `app2` are independently deployed apps:
+Both `app1` and `react-todo-app` are independently deployed apps:
 
 - `app1`: http://localhost:3001
-- `app2`: http://localhost:3002
+- `react-todo-app`: http://localhost:3002
 
 Check out this link below for more examples:
 
