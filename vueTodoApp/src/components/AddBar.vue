@@ -19,6 +19,7 @@ export default {
     onSubmit(e) {
       e.preventDefault();
       this.addItem(this.value);
+      this.value = '';
     },
   },
 };

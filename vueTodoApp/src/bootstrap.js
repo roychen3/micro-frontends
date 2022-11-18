@@ -32,5 +32,6 @@ class AppElement extends HTMLElement {
 }
 
 if (!customElements.get('vue-todo-app')) {
+  console.log('defin vue-todo-app');
   customElements.define('vue-todo-app', AppElement);
 }
