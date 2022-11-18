@@ -1,12 +1,18 @@
 <template>
-  <h1>Vue Hello World!</h1>
+  <h1>Vue Todo App</h1>
+  <AddBar />
+  <TodoList />
 </template>
 
 <script>
+import AddBar from './components/AddBar.vue';
+import TodoList from './components/TodoList.vue';
+
 export default {
   name: 'App',
-  data() {
-    return {};
+  components: {
+    AddBar,
+    TodoList,
   },
 };
 </script>
