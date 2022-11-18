@@ -27,7 +27,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app1",
+      name: "reactMenuApp",
       remotes: {
         reactTodoApp: "reactTodoApp@[reactTodoAppUrl]/remoteEntry.js",
       },
