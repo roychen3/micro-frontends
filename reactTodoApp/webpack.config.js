@@ -36,7 +36,7 @@ module.exports = {
       name: 'reactTodoApp',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App',
+        './App': './src/bootstrap.js',
       },
       shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
     }),

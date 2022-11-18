@@ -22,11 +22,8 @@ p {
   border-color: #000;
   border-width: 1px;
   border-style: solid;
-
-  .none-todo {
-    background-color: #61dafb;
-  }
 }
+
 .todo-item {
   display: flex;
   flex-wrap: nowrap;
@@ -34,7 +31,7 @@ p {
   gap: 1px;
 
   .content {
-    background-color: #fff;
+    background-color: #61dafb;
     flex-grow: 1;
     cursor: pointer;
   }

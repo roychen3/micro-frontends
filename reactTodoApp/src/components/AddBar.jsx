@@ -25,8 +25,13 @@ const AddBar = () => {
   };
 
   return (
-    <div className='add-bar'>
-      <input type="text" value={value} onChange={handleChange} />
+    <div className="add-bar">
+      <input
+        type="text"
+        value={value}
+        placeholder="Add Todo..."
+        onChange={handleChange}
+      />
       <button type="button" onClick={handleAdd}>
         Add
       </button>
