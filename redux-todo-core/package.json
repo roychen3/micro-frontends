@@ -1,0 +1,33 @@
+{
+  "name": "redux-todo-core",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Roy Chen <roy850323@gmail.com>",
+  "homepage": "https://github.com/roychen3/micro-frontends#readme",
+  "license": "ISC",
+  "main": "lib/store.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "exports": {
+    ".": "./lib/store.js",
+    "./todoSlice": "./lib/todoSlice.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roychen3/micro-frontends.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/roychen3/micro-frontends/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.0",
+    "redux": "^4.2.0"
+  }
+}

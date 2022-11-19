@@ -1,6 +1,6 @@
 import React from 'react';
-import { store } from './redux/store';
 import { Provider } from 'react-redux';
+import { store } from 'redux-todo-core';
 
 import Todo from './Todo.jsx';
 

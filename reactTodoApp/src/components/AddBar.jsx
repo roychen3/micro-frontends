@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addItem } from '../redux/todoSlice';
+import { addItem } from 'redux-todo-core/todoSlice';
 
 const AddBar = () => {
   const dispatch = useDispatch();
