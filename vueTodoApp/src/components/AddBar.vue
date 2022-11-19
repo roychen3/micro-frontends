@@ -6,7 +6,9 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { store } from 'redux-todo-core';
+import { addItem } from 'redux-todo-core/todoSlice';
+
 export default {
   name: 'AddBar',
   data() {
@@ -15,10 +17,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['addItem']),
     onSubmit(e) {
       e.preventDefault();
-      this.addItem(this.value);
+      store.dispatch(addItem(this.value));
       this.value = '';
     },
   },

@@ -7,8 +7,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
+import { store } from 'redux-todo-core';
 import TodoItem from './TodoItem.vue';
 
 export default {
@@ -16,6 +15,18 @@ export default {
   components: {
     TodoItem,
   },
-  computed: mapGetters(['todoList']),
+  data() {
+    return {
+      todoList: [],
+    };
+  },
+  created: function () {
+    const { list } = store.getState().todo;
+    this.todoList = list;
+    store.subscribe(() => {
+      const { list } = store.getState().todo;
+      this.todoList = list;
+    });
+  },
 };
 </script>

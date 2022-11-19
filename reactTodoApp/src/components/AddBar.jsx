@@ -14,12 +14,7 @@ const AddBar = () => {
 
   const handleAdd = () => {
     if (value) {
-      const data = {
-        id: new Date().getTime(),
-        content: value,
-        isDone: false,
-      };
-      dispatch(addItem(data));
+      dispatch(addItem(value));
       setvalue('');
     }
   };

@@ -8,6 +8,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "redux-todo-core": "*",
     "vue": "^3.2.45",
     "vuex": "^4.1.0"
   },

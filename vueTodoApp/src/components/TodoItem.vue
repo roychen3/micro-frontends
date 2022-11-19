@@ -1,16 +1,17 @@
 <template>
   <div class="todo-item">
-    <div class="content" @click="handleToggle(data)">
+    <div class="content" @click="handleToggle">
       <p v-bind:class="{ 'is-done': data.isDone }">
         {{ data.content }}
       </p>
     </div>
-    <button type="button" @click="handleDelete(data.id)">Delete</button>
+    <button type="button" @click="handleDelete">Delete</button>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { store } from 'redux-todo-core';
+import { deleteItem, toggleItem } from 'redux-todo-core/todoSlice';
 
 export default {
   name: 'TodoItem',
@@ -18,14 +19,12 @@ export default {
     data: Object,
   },
   methods: {
-    ...mapActions(['deleteItem', 'toggleItem']),
-    handleToggle(data) {
-      this.toggleItem(data);
+    handleToggle() {
+      store.dispatch(toggleItem(this.data.id));
     },
-    handleDelete(id) {
-      this.deleteItem(id);
+    handleDelete() {
+      store.dispatch(deleteItem(this.data.id));
     },
   },
-  computed: mapGetters(['todoList']),
 };
 </script>

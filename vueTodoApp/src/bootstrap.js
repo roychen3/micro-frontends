@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
-import App from './App.vue';
-import store from './store';
+import { store } from 'redux-todo-core';
 
 import appStyles from './app.scss';
+import App from './App.vue';
 
 class AppElement extends HTMLElement {
   constructor() {

@@ -9,7 +9,12 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      state.list.push(action.payload);
+      const data = {
+        id: new Date().getTime(),
+        content: action.payload,
+        isDone: false,
+      };
+      state.list.push(data);
     },
     toggleItem: (state, action) => {
       const updateIdx = state.list.findIndex(
