@@ -38,7 +38,11 @@ module.exports = {
       exposes: {
         './App': './src/bootstrap.js',
       },
-      shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
+      shared: {
+        react: { singleton: true },
+        'react-dom': { singleton: true, requiredVersion: "^6.4.3" },
+        'mobx-react': { singleton: true },
+      },
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

@@ -1,17 +1,16 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useContext } from 'react';
 
-import { toggleItem, deleteItem } from 'redux-todo-core/todoSlice';
+import { AppContext } from '../App';
 
 const TodoItem = ({ data }) => {
-  const dispatch = useDispatch();
+  const store = useContext(AppContext);
 
   const handleToggle = () => {
-    dispatch(toggleItem(data.id));
+    store.toggleItem(data.id);
   };
 
   const handleDelete = () => {
-    dispatch(deleteItem(data.id));
+    store.deleteItem(data.id);
   };
 
   return (

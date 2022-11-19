@@ -1,16 +1,17 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useContext } from 'react';
+import { observer } from 'mobx-react';
 
+import { AppContext } from '../App';
 import TodoItem from './TodoItem.jsx';
 
 const TodoList = () => {
-  const list = useSelector((state) => state.todo.list);
+  const store = useContext(AppContext);
 
   return (
     <>
-      {list.length > 0 && (
+      {store.list.length > 0 && (
         <div className="todo-list">
-          {list.map((item) => (
+          {store.list.map((item) => (
             <TodoItem key={item.id} data={item} />
           ))}
         </div>
@@ -19,4 +20,4 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+export default observer(TodoList);

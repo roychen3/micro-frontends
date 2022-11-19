@@ -1,15 +1,16 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from 'redux-todo-core';
+import { store } from 'mobx-todo-core';
 
 import Todo from './Todo.jsx';
 
+export const AppContext = React.createContext();
+
 const App = () => {
   return (
-    <Provider store={store}>
+    <AppContext.Provider value={store}>
       <h1>React App</h1>
       <Todo />
-    </Provider>
+    </AppContext.Provider>
   );
 };
 

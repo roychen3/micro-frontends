@@ -6,7 +6,8 @@
       "reactMenuApp",
       "reactTodoApp",
       "vueTodoApp",
-      "redux-todo-core"
+      "redux-todo-core",
+      "mobx-todo-core"
     ]
   },
   "scripts": {

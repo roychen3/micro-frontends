@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { addItem } from 'redux-todo-core/todoSlice';
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../App';
 
 const AddBar = () => {
-  const dispatch = useDispatch();
+  const store = useContext(AppContext);
 
   const [value, setvalue] = useState('');
 
@@ -14,7 +12,7 @@ const AddBar = () => {
 
   const handleAdd = () => {
     if (value) {
-      dispatch(addItem(value));
+      store.addItem(value);
       setvalue('');
     }
   };

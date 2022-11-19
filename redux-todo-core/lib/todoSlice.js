@@ -17,10 +17,16 @@ export const todoSlice = createSlice({
       state.list.push(data);
     },
     toggleItem: (state, action) => {
-      const updateIdx = state.list.findIndex(
-        (item) => item.id === action.payload
-      );
-      state.list[updateIdx].isDone = !state.list[updateIdx].isDone;
+      const newList = state.list.map((item) => {
+        if (item.id === action.payload) {
+          return {
+            ...item,
+            isDone: !item.isDone,
+          };
+        }
+        return item;
+      });
+      state.list = newList;
     },
     deleteItem: (state, action) => {
       const newList = state.list.filter((item) => item.id !== action.payload);

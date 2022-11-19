@@ -8,13 +8,14 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "redux-todo-core": "*",
-    "@reduxjs/toolkit": "^1.9.0",
+    "mobx-react": "^7.6.0",
+    "mobx-todo-core": "*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "redux-todo-core": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
