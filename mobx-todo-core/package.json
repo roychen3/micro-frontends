@@ -25,6 +25,7 @@
     "url": "https://github.com/roychen3/micro-frontends/issues"
   },
   "dependencies": {
+    "todo-api": "*",
     "mobx": "^6.7.0"
   }
 }
