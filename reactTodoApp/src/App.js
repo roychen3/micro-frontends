@@ -7,7 +7,7 @@ import Todo from './Todo.jsx';
 const App = () => {
   return (
     <Provider store={store}>
-      <h1>React App</h1>
+      <h1>React Todo App</h1>
       <Todo />
     </Provider>
   );
