@@ -30,13 +30,13 @@ p {
   background-color: #000;
   gap: 1px;
 
-  .content {
+  .title {
     background-color: #61dafb;
     flex-grow: 1;
     cursor: pointer;
   }
 
-  .is-done {
+  .is-completed {
     text-decoration: line-through;
   }
 }

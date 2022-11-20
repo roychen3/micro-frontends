@@ -1,8 +1,8 @@
 <template>
   <div class="todo-item">
-    <div class="content" @click="handleToggle">
-      <p v-bind:class="{ 'is-done': data.isDone }">
-        {{ data.content }}
+    <div class="title" @click="handleToggle">
+      <p v-bind:class="{ 'is-completed': data.completed }">
+        {{ data.title }}
       </p>
     </div>
     <button type="button" @click="handleDelete">Delete</button>
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     handleToggle() {
-      store.dispatch(toggleItem(this.data.id));
+      store.dispatch(toggleItem(this.data));
     },
     handleDelete() {
       store.dispatch(deleteItem(this.data.id));
