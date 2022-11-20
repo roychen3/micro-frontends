@@ -6,11 +6,9 @@
 </template>
 
 <script>
-import { store } from 'redux-todo-core';
-import { addItem } from 'redux-todo-core/todoSlice';
-
 export default {
   name: 'AddBar',
+  inject: ['store'],
   data() {
     return {
       value: '',
@@ -19,7 +17,7 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault();
-      store.dispatch(addItem(this.value));
+      this.store.addItem(this.value);
       this.value = '';
     },
   },

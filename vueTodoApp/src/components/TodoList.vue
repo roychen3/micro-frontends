@@ -1,32 +1,24 @@
 <template>
-  <div class="todo-list" v-if="todoList.length > 0">
-    <div v-for="todo in todoList" :key="todo.id" class="todo">
-      <TodoItem :data="todo" />
+  <Observer>
+    <div class="todo-list" v-if="store.list.length > 0">
+      <div v-for="todo in store.list" :key="todo.id" class="todo">
+        <TodoItem :data="todo" />
+      </div>
     </div>
-  </div>
+  </Observer>
 </template>
 
 <script>
-import { store } from 'redux-todo-core';
+import { Observer } from 'mobx-vue-lite';
+
 import TodoItem from './TodoItem.vue';
 
 export default {
   name: 'TodoList',
   components: {
+    Observer,
     TodoItem,
   },
-  data() {
-    return {
-      todoList: [],
-    };
-  },
-  created: function () {
-    const { list } = store.getState().todo;
-    this.todoList = list;
-    store.subscribe(() => {
-      const { list } = store.getState().todo;
-      this.todoList = list;
-    });
-  },
+  inject: ['store'],
 };
 </script>

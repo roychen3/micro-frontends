@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { store } from 'redux-todo-core';
+import Observer from 'mobx-vue-lite'
 
 import appStyles from './app.scss';
 import App from './App.vue';
@@ -20,7 +20,7 @@ class AppElement extends HTMLElement {
     const rootNode = document.createElement('div');
     rootNode.id = 'root';
     this.app = createApp(App);
-    this.app.use(store);
+    this.app.use(Observer);
     this.app.mount(rootNode);
     this.shadowRoot.appendChild(rootNode);
   }

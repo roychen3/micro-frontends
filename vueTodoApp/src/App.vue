@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { store } from 'mobx-todo-core';
+
 import AddBar from './components/AddBar.vue';
 import TodoList from './components/TodoList.vue';
 
@@ -13,6 +15,9 @@ export default {
   components: {
     AddBar,
     TodoList,
+  },
+  provide: {
+    store,
   },
 };
 </script>

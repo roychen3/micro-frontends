@@ -10,20 +10,18 @@
 </template>
 
 <script>
-import { store } from 'redux-todo-core';
-import { deleteItem, toggleItem } from 'redux-todo-core/todoSlice';
-
 export default {
   name: 'TodoItem',
   props: {
     data: Object,
   },
+  inject: ['store'],
   methods: {
     handleToggle() {
-      store.dispatch(toggleItem(this.data.id));
+      this.store.toggleItem(this.data.id);
     },
     handleDelete() {
-      store.dispatch(deleteItem(this.data.id));
+      this.store.deleteItem(this.data.id);
     },
   },
 };
