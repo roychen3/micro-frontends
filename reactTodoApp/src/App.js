@@ -8,7 +8,7 @@ export const AppContext = React.createContext();
 const App = () => {
   return (
     <AppContext.Provider value={store}>
-      <h1>React App</h1>
+      <h1>React Todo App</h1>
       <Todo />
     </AppContext.Provider>
   );

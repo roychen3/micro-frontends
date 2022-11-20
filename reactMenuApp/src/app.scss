@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "微軟正黑體";
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 13rem 1fr;
+  grid-template-rows: 7rem;
+  min-height: 100vh;
+}
+
+.head {
+  grid-column: span 2 / span 2;
+  background-color: #61dafb;
+  padding: 1rem 0;
+  border-color: #000;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+
+  .container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    h1{
+      margin: 0;  
+    }
+  }
+}
+
+.aside {
+  background-color: #61dafb;
+  padding: 1rem;
+  border-color: #000;
+  border-right-width: 2px;
+  border-right-style: solid;
+}
+
+.menu {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.content{
+    max-height: calc(100vh - 7rem);
+    overflow: auto;
+}
