@@ -1,5 +1,6 @@
 <template>
   <Observer>
+    <div v-if="store.loading">loading..</div>
     <div class="todo-list" v-if="store.list.length > 0">
       <div v-for="todo in store.list" :key="todo.id" class="todo">
         <TodoItem :data="todo" />
@@ -20,5 +21,8 @@ export default {
     TodoItem,
   },
   inject: ['store'],
+  mounted() {
+    this.store.fetchTodoList();
+  },
 };
 </script>

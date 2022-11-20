@@ -1,8 +1,8 @@
 <template>
   <div class="todo-item">
-    <div class="content" @click="handleToggle">
-      <p v-bind:class="{ 'is-done': data.isDone }">
-        {{ data.content }}
+    <div class="title" @click="handleToggle">
+      <p v-bind:class="{ 'is-completed': data.completed }">
+        {{ data.title }}
       </p>
     </div>
     <button type="button" @click="handleDelete">Delete</button>
@@ -18,7 +18,7 @@ export default {
   inject: ['store'],
   methods: {
     handleToggle() {
-      this.store.toggleItem(this.data.id);
+      this.store.toggleItem(this.data);
     },
     handleDelete() {
       this.store.deleteItem(this.data.id);

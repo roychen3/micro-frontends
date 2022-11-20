@@ -6,7 +6,7 @@ const TodoItem = ({ data }) => {
   const store = useContext(AppContext);
 
   const handleToggle = () => {
-    store.toggleItem(data.id);
+    store.toggleItem(data);
   };
 
   const handleDelete = () => {
@@ -15,8 +15,8 @@ const TodoItem = ({ data }) => {
 
   return (
     <div className="todo-item">
-      <div className="content" onClick={handleToggle}>
-        <p className={data.isDone ? 'is-done' : ''}>{data.content}</p>
+      <div className="title" onClick={handleToggle}>
+        <p className={data.completed ? 'is-completed' : ''}>{data.title}</p>
       </div>
       <button onClick={handleDelete}>Delete</button>
     </div>
