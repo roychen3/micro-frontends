@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { store } from 'redux-todo-core';
 import { fetchTodoList } from 'redux-todo-core/todoSlice';
 
 import TodoItem from './TodoItem.vue';
@@ -18,25 +17,23 @@ export default {
   components: {
     TodoItem,
   },
+  inject: ['store'],
   data() {
+    const { loading, list } = this.store.getState().todo;
     return {
-      loading: false,
-      todoList: [],
+      loading,
+      todoList: list,
     };
   },
-  created: function () {
-    const { loading, list } = store.getState().todo;
-    this.loading = loading;
-    this.todoList = list;
-
-    store.subscribe(() => {
-      const { loading, list } = store.getState().todo;
+  created() {
+    this.store.subscribe(() => {
+      const { loading, list } = this.store.getState().todo;
       this.loading = loading;
       this.todoList = list;
     });
   },
   mounted() {
-    store.dispatch(fetchTodoList());
+    this.store.dispatch(fetchTodoList());
   },
 };
 </script>
