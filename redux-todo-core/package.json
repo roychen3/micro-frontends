@@ -27,6 +27,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "todo-api": "*",
     "@reduxjs/toolkit": "^1.9.0",
     "redux": "^4.2.0"
   }
