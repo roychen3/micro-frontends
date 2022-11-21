@@ -1,20 +1,18 @@
 {
-  "name": "mobx-todo-core",
+  "name": "redux-todo-core",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Roy Chen <roy850323@gmail.com>",
   "homepage": "https://github.com/roychen3/micro-frontends#readme",
   "license": "ISC",
-  "main": "lib/store.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "main": "src/store.js",
+  "directories": {},
   "files": [
-    "lib"
+    "src"
   ],
   "exports": {
-    ".": "./lib/store.js"
+    ".": "./src/store.js",
+    "./todoSlice": "./src/todoSlice.js"
   },
   "repository": {
     "type": "git",
@@ -24,8 +22,9 @@
   "bugs": {
     "url": "https://github.com/roychen3/micro-frontends/issues"
   },
+  "devDependencies": {},
   "dependencies": {
-    "todo-api": "*",
-    "mobx": "^6.7.0"
+    "@reduxjs/toolkit": "^1.9.0",
+    "redux": "^4.2.0"
   }
 }

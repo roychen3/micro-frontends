@@ -1,4 +1,4 @@
-# Module Federation
+# Microfrontends with Module Federation
 
 ## How to use
 
@@ -9,14 +9,16 @@ npm i
 npm run start
 ```
 
-Both `reactMenuApp` and `reactTodoApp` are independently deployed apps:
+## Entry Point
+- `reactApp`: http://localhost:1001
 
-- `reactMenuApp`: http://localhost:3001
-- `reactTodoApp`: http://localhost:3002
+## Microfrontends
+- `reactTodoApp`: http://localhost:2001
+- `vueTodoApp`: http://localhost:2002
 
 Check out this link below for more examples:
 
-[https://github.com/module-federation/module-federation-examples](https://github.com/module-federation/module-federation-examples)
+https://github.com/module-federation/module-federation-examples
 
 ### add package
 ```bash
