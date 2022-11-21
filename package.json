@@ -3,11 +3,7 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "reactMenuApp",
-      "reactTodoApp",
-      "vueTodoApp",
-      "redux-todo-core",
-      "todo-api"
+      "*/**"
     ]
   },
   "scripts": {
