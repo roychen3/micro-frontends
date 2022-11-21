@@ -9,6 +9,11 @@ npm i
 npm run start
 ```
 
+### add package
+```bash
+npx lerna add <package>
+```
+
 ## Entry Point
 - `reactApp`: http://localhost:1001
 
@@ -20,7 +25,6 @@ Check out this link below for more examples:
 
 https://github.com/module-federation/module-federation-examples
 
-### add package
-```bash
-npx lerna add <package>
-```
+# Concept
+
+![image](https://github.com/roychen3/micro-frontends/blob/master/readmeAsset/concept.png?raw=true)
