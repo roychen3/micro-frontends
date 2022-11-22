@@ -1,13 +1,31 @@
+$vue-green: #42b883;
+$main-black: #1a1a1a;
+$secondary-black: #252525;
+$main-text: #ffffffde;
+$secondary-text: #ebebeb99;
+
 p {
   margin: 0;
 }
 
+button,
+input[type='submit'] {
+  background-color: $secondary-black;
+  color: $main-text;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
 #root {
-  background-color: #42b883;
-  color: #fff;
+  background-color: $main-black;
   text-align: center;
-  margin: 10px;
   padding: 10px;
+  color: $main-text;
+}
+
+#root > h1 {
+  color: $vue-green;
 }
 
 .add-bar {
@@ -18,25 +36,24 @@ p {
   width: 60%;
   margin: 0 auto;
   display: grid;
-  gap: 1px;
-  background-color: #fff;
-  border-color: #fff;
-  border-width: 1px;
-  border-style: solid;
+  gap: 2px;
+  background-color: $main-black;
 }
 .todo-item {
   display: flex;
   flex-wrap: nowrap;
-  background-color: #fff;
-  gap: 1px;
+  gap: 2px;
 
   .title {
-    background-color: #42b883;
+    padding: 1rem;
+    background-color: $secondary-black;
     flex-grow: 1;
     cursor: pointer;
   }
 
   .is-completed {
     text-decoration: line-through;
+    text-decoration-color: $vue-green;
+    text-decoration-thickness: 0.25rem;
   }
 }

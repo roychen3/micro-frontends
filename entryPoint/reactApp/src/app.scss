@@ -1,40 +1,46 @@
+$header-height: 7rem;
+$react-blue: #61dafb;
+$main-black: #20232a;
+$secondary-black: #282c34;
+
 body {
   margin: 0;
   overflow: hidden;
-  font-family: "微軟正黑體";
+  font-family: '微軟正黑體';
 }
 
 .layout {
   display: grid;
   grid-template-columns: 13rem 1fr;
-  grid-template-rows: 7rem;
+  grid-template-rows: $header-height;
   min-height: 100vh;
 }
 
 .head {
   grid-column: span 2 / span 2;
-  background-color: #61dafb;
-  padding: 1rem 0;
-  border-color: #000;
-  border-bottom-width: 2px;
+  background-color: $main-black;
+  padding: 1rem;
+  border-color: $react-blue;
+  border-bottom-width: 1px;
   border-bottom-style: solid;
 
-  .container{
+  .container {
     display: flex;
     align-items: center;
     height: 100%;
 
-    h1{
-      margin: 0;  
+    h1 {
+      color: $react-blue;
+      margin: 0;
     }
   }
 }
 
 .aside {
-  background-color: #61dafb;
+  background-color: $secondary-black;
   padding: 1rem;
-  border-color: #000;
-  border-right-width: 2px;
+  border-color: $react-blue;
+  border-right-width: 1px;
   border-right-style: solid;
 }
 
@@ -42,9 +48,14 @@ body {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  color: $react-blue;
+
+  a {
+    color: $react-blue;
+  }
 }
 
-.content{
-    max-height: calc(100vh - 7rem);
-    overflow: auto;
+.content {
+  max-height: calc(100vh - $header-height);
+  overflow: auto;
 }
