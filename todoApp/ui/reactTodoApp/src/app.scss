@@ -1,12 +1,29 @@
+$react-blue: #61dafb;
+$main-black: #20232a;
+$secondary-black: #282c34;
+$main-text: #fff;
+
 p {
   margin: 0;
 }
 
+button {
+  background-color: $main-black;
+  border: none;
+  padding: 0.5rem;
+  color: $main-text;
+  cursor: pointer;
+}
+
 #root {
-  margin: 10px;
   padding: 10px;
   text-align: center;
-  background-color: #61dafb;
+  background-color: $secondary-black;
+  color: $main-text;
+}
+
+#root > h1 {
+  color: $react-blue;
 }
 
 .add-bar {
@@ -17,26 +34,24 @@ p {
   width: 60%;
   margin: 0 auto;
   display: grid;
-  gap: 1px;
-  background-color: #000;
-  border-color: #000;
-  border-width: 1px;
-  border-style: solid;
+  gap: 2px;
 }
 
 .todo-item {
   display: flex;
   flex-wrap: nowrap;
-  background-color: #000;
-  gap: 1px;
+  gap: 2px;
 
   .title {
-    background-color: #61dafb;
     flex-grow: 1;
+    background-color: $main-black;
+    padding: 1rem;
     cursor: pointer;
   }
 
   .is-completed {
     text-decoration: line-through;
+    text-decoration-color: $react-blue;
+    text-decoration-thickness: 0.25rem;
   }
 }
