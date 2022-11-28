@@ -7,16 +7,21 @@ const ReactTodoApp = React.lazy(() => import('./remoteApps/ReactTodoApp.jsx'));
 const VueTodoApp = React.lazy(() => import('./remoteApps/VueTodoApp.jsx'));
 
 const App = () => {
+  const [count, setCount] = React.useState(121);
+  const handleAdd = () => {
+    setCount(count + 1);
+  };
   return (
     <Router>
       <Layout>
+        <button onClick={handleAdd}>Add</button>
         <Routes>
           <Route path="/" element={<div>Home Page</div>} />
           <Route
             path="/react-todo-app"
             element={
               <Suspense fallback={'loading...'}>
-                <ReactTodoApp />
+                <ReactTodoApp count={count} />
               </Suspense>
             }
           />
@@ -24,7 +29,7 @@ const App = () => {
             path="/vue-todo-app"
             element={
               <Suspense fallback={'loading...'}>
-                <VueTodoApp />
+                <VueTodoApp count={count} />
               </Suspense>
             }
           />
