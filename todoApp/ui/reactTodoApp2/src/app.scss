@@ -1,0 +1,57 @@
+$react-blue: #61dafb;
+$main-black: #20232a;
+$secondary-black: #282c34;
+$main-text: #fff;
+
+p {
+  margin: 0;
+}
+
+button {
+  background-color: $main-black;
+  border: none;
+  padding: 0.5rem;
+  color: $main-text;
+  cursor: pointer;
+}
+
+#root {
+  padding: 10px;
+  text-align: center;
+  background-color: $secondary-black;
+  color: $main-text;
+}
+
+#root > h1 {
+  color: $react-blue;
+}
+
+.add-bar {
+  margin-bottom: 1rem;
+}
+
+.todo-list {
+  width: 60%;
+  margin: 0 auto;
+  display: grid;
+  gap: 2px;
+}
+
+.todo-item {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2px;
+
+  .title {
+    flex-grow: 1;
+    background-color: $main-black;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .is-completed {
+    text-decoration: line-through;
+    text-decoration-color: $react-blue;
+    text-decoration-thickness: 0.25rem;
+  }
+}
