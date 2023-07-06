@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from 'redux-todo-core';
-import { Button } from 'micro-frontend-ui-test'
+import { Button } from 'micro-frontend-react-ui'
 
 import Todo from './Todo.jsx';
 
