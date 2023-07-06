@@ -7,17 +7,19 @@ import App from './App';
 class AppElement extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    // this.attachShadow({ mode: 'open' });
     const styleNode = document.createElement('style');
     styleNode.innerHTML = appStyles;
-    this.shadowRoot.appendChild(styleNode);
+    this.styleNode = styleNode
+    const rootNode = document.createElement('div');
+    rootNode.id = 'root';
+    this.rootNode = rootNode
     this.count = 0;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     this.count = newValue;
-    const rootNode = this.shadowRoot.querySelector('#root')
-    ReactDOM.render(<App count={newValue} />, rootNode);
+    ReactDOM.render(<App count={newValue} />, this.rootNode);
   }
 
   static get observedAttributes() {
@@ -26,14 +28,13 @@ class AppElement extends HTMLElement {
 
   connectedCallback() {
     console.log('app_1: connectedCallback');
-    const rootNode = document.createElement('div');
-    rootNode.id = 'root';
-    ReactDOM.render(<App count={this.count} />, rootNode);
-    this.shadowRoot.appendChild(rootNode);
+    this.appendChild(this.styleNode);
+    this.appendChild(this.rootNode);
+    ReactDOM.render(<App count={this.count} />, this.rootNode);
   }
   disconnectedCallback() {
     console.log('app_1: disconnectedCallback');
-    ReactDOM.unmountComponentAtNode(this.shadowRoot.getElementById('root'));
+    ReactDOM.unmountComponentAtNode(this.rootNode);
   }
 }
 

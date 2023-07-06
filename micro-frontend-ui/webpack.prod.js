@@ -1,9 +1,12 @@
+const nodeExternals = require('webpack-node-externals');
+const path = require('path');
+
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  entry: './src/components/index',
+  entry: path.join(__dirname, 'src', 'components', 'index.js'),
   output: {
-    filename: 'components.js',
+    filename: 'index.js',
     library: {
       type: 'module',
     },
@@ -29,5 +32,10 @@ module.exports = {
         use: ['css-loader', 'sass-loader'],
       },
     ],
+  },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+    'styled-components': 'styled-components',
   },
 };
