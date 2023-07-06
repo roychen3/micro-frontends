@@ -19,6 +19,7 @@ npx lerna add <package>
 
 ## Microfrontends
 - `reactTodoApp`: http://localhost:2001
+- `reactTodoApp2`: http://localhost:2003
 - `vueTodoApp`: http://localhost:2002
 
 Check out this link below for more examples:

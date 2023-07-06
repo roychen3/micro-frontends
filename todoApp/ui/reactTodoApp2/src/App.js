@@ -1,6 +1,6 @@
 import React from 'react';
 import { store } from 'mobx-todo-core';
-import { Button } from 'micro-frontend-ui-test'
+import { Button } from 'micro-frontend-react-ui'
 
 import Todo from './Todo.jsx';
 
