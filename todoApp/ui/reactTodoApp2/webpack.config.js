@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
-const ExternalTemplateRemotesPlugin = require('external-remotes-plugin');
 const path = require('path');
 
 module.exports = {
@@ -8,8 +7,7 @@ module.exports = {
   mode: 'development',
   devServer: {
     static: path.join(__dirname, 'dist'),
-    port: 1001,
-    historyApiFallback: true,
+    port: 2003,
   },
   output: {
     publicPath: 'auto',
@@ -28,21 +26,23 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ['css-loader', 'sass-loader'],
       },
     ],
   },
   plugins: [
+    // To learn more about the usage of this plugin, please visit https://webpack.js.org/plugins/module-federation-plugin/
     new ModuleFederationPlugin({
-      name: 'reactMenuApp',
-      remotes: {
-        reactTodoApp: 'reactTodoApp@[reactTodoAppUrl]/remoteEntry.js',
-        reactTodoApp2: 'reactTodoApp2@[reactTodoApp2Url]/remoteEntry.js',
-        vueTodoApp: 'vueTodoApp@[vueTodoAppUrl]/remoteEntry.js',
+      name: 'reactTodoApp2',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './App': './src/bootstrap.js',
       },
-      shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
+      shared: {
+        react: { singleton: true },
+        'react-dom': { singleton: true, requiredVersion: "^6.4.3" },
+      },
     }),
-    new ExternalTemplateRemotesPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),

@@ -9,10 +9,13 @@ class AppElement extends HTMLElement {
     super();
     this.app;
 
-    this.attachShadow({ mode: 'open' });
+    // this.attachShadow({ mode: 'open' });
     const styleNode = document.createElement('style');
     styleNode.innerHTML = appStyles;
-    this.shadowRoot.appendChild(styleNode);
+    this.styleNode = styleNode;
+    const rootNode = document.createElement('div');
+    rootNode.id = 'root';
+    this.rootNode = rootNode;
     this.count = 0;
     this.props = {};
   }
@@ -28,25 +31,24 @@ class AppElement extends HTMLElement {
 
   connectedCallback() {
     console.log('vue_todo_app: connectedCallback');
-    const rootNode = document.createElement('div');
-    rootNode.id = 'root';
 
+    this.appendChild(this.styleNode);
     this.props = reactive({
       count: this.count,
     });
     this.app = createApp(() => h(App, this.props));
     this.app.use(store);
-    this.app.mount(rootNode);
-    this.shadowRoot.appendChild(rootNode);
+    this.app.mount(this.rootNode);
+    this.appendChild(this.rootNode);
   }
 
   disconnectedCallback() {
     console.log('vue_todo_app: disconnectedCallback');
-    this.app.unmount(this.shadowRoot.querySelector('#root'));
+    this.app.unmount(this.rootNode);
   }
 }
 
 if (!customElements.get('vue-todo-app')) {
-  console.log('defin vue-todo-app');
+  console.log('define vue-todo-app');
   customElements.define('vue-todo-app', AppElement);
 }

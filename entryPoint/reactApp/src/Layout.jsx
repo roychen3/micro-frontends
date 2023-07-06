@@ -18,6 +18,9 @@ const Layout = ({ children }) => {
             <Link to="react-todo-app">ReactTodoApp</Link>
           </li>
           <li className="menu-item">
+            <Link to="react-todo-app2">ReactTodoApp2</Link>
+          </li>
+          <li className="menu-item">
             <Link to="vue-todo-app">VueTodoApp</Link>
           </li>
         </ul>

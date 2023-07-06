@@ -10,7 +10,7 @@ export const AppContext = React.createContext();
 const App = ({ count }) => {
   return (
     <Provider store={store}>
-      <h1>React Todo App</h1>
+      <h1>React Todo App2</h1>
       {count}
       <Button>Normal</Button>
       <Button primary>Primary</Button>
