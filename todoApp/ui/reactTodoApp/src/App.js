@@ -5,10 +5,11 @@ import Todo from './Todo.jsx';
 
 export const AppContext = React.createContext();
 
-const App = () => {
+const App = ({ count }) => {
   return (
     <AppContext.Provider value={store}>
       <h1>React Todo App</h1>
+      {count}
       <Todo />
     </AppContext.Provider>
   );
