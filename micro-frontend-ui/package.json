@@ -1,22 +1,27 @@
 {
-  "name": "react-todo-app",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "micro-frontend-ui-test",
+  "version": "1.0.5",
+  "author": "Roy chen <roy850323@gmail.com>",
+  "main": "./dist/index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roychen3/micro-frontends.git"
+  },
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --mode production"
+    "build": "webpack --config webpack.prod.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js"
   },
   "dependencies": {
-    "micro-frontend-ui-test": "^1.0.5",
-    "mobx-react": "^7.6.0",
-    "mobx-todo-core": "*",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-redux": "^8.0.5",
-    "react-router-dom": "^6.4.3",
-    "redux": "^4.2.0",
-    "redux-todo-core": "*"
+    "styled-components": "^6.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
