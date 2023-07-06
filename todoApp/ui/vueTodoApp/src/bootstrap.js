@@ -1,4 +1,4 @@
-import { createApp } from 'vue';
+import { createApp, h, reactive } from 'vue';
 import { store } from 'redux-todo-core';
 
 import appStyles from './app.scss';
@@ -13,13 +13,28 @@ class AppElement extends HTMLElement {
     const styleNode = document.createElement('style');
     styleNode.innerHTML = appStyles;
     this.shadowRoot.appendChild(styleNode);
+    this.count = 0;
+    this.props = {};
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.count = newValue;
+    this.props.count = newValue;
+  }
+
+  static get observedAttributes() {
+    return ['count'];
   }
 
   connectedCallback() {
     console.log('vue_todo_app: connectedCallback');
     const rootNode = document.createElement('div');
     rootNode.id = 'root';
-    this.app = createApp(App);
+
+    this.props = reactive({
+      count: this.count,
+    });
+    this.app = createApp(() => h(App, this.props));
     this.app.use(store);
     this.app.mount(rootNode);
     this.shadowRoot.appendChild(rootNode);

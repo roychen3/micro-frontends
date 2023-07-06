@@ -4,10 +4,13 @@ import { store } from 'redux-todo-core';
 
 import Todo from './Todo.jsx';
 
-const App = () => {
+export const AppContext = React.createContext();
+
+const App = ({ count }) => {
   return (
     <Provider store={store}>
       <h1>React Todo App</h1>
+      {count}
       <Todo />
     </Provider>
   );

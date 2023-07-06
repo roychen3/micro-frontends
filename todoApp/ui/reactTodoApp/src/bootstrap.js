@@ -11,19 +11,29 @@ class AppElement extends HTMLElement {
     const styleNode = document.createElement('style');
     styleNode.innerHTML = appStyles;
     this.shadowRoot.appendChild(styleNode);
+    this.count = 0;
   }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.count = newValue;
+    const rootNode = this.shadowRoot.querySelector('#root')
+    ReactDOM.render(<App count={newValue} />, rootNode);
+  }
+
+  static get observedAttributes() {
+    return ['count'];
+  }
+
   connectedCallback() {
     console.log('app_1: connectedCallback');
     const rootNode = document.createElement('div');
     rootNode.id = 'root';
-    ReactDOM.render(<App />, rootNode);
+    ReactDOM.render(<App count={this.count} />, rootNode);
     this.shadowRoot.appendChild(rootNode);
   }
   disconnectedCallback() {
     console.log('app_1: disconnectedCallback');
-    ReactDOM.unmountComponentAtNode(
-      this.shadowRoot.getElementById('root')
-    );
+    ReactDOM.unmountComponentAtNode(this.shadowRoot.getElementById('root'));
   }
 }
 

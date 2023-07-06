@@ -1,5 +1,7 @@
 <template>
-  <h1>Vue Todo App</h1>
+  <h1>
+    Vue Todo App {{ count }}
+  </h1>
   <AddBar />
   <TodoList />
 </template>
@@ -11,6 +13,7 @@ import { store } from 'redux-todo-core';
 
 export default {
   name: 'App',
+  props: ['count'],
   components: {
     AddBar,
     TodoList,
