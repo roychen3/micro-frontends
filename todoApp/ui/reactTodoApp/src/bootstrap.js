@@ -7,7 +7,7 @@ import App from './App';
 class AppElement extends HTMLElement {
   constructor() {
     super();
-    // this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' });
     const styleNode = document.createElement('style');
     styleNode.innerHTML = appStyles;
     this.styleNode = styleNode
@@ -28,8 +28,8 @@ class AppElement extends HTMLElement {
 
   connectedCallback() {
     console.log('app_1: connectedCallback');
-    this.appendChild(this.styleNode);
-    this.appendChild(this.rootNode);
+    this.shadowRoot.appendChild(this.styleNode);
+    this.shadowRoot.appendChild(this.rootNode);
     ReactDOM.render(<App count={this.count} />, this.rootNode);
   }
   disconnectedCallback() {
