@@ -2,20 +2,26 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from 'redux-todo-core';
 import { Button } from 'micro-frontend-react-ui'
+import { StyleSheetManager } from 'styled-components'
 
 import Todo from './Todo.jsx';
 
 export const AppContext = React.createContext();
-
+const APP_NAME = 'react-todo-app'
 const App = ({ count }) => {
   return (
-    <Provider store={store}>
-      <h1>React Todo App</h1>
-      {count}
-      <Button>Normal</Button>
-      <Button primary>Primary</Button>
-      <Todo />
-    </Provider>
+    <StyleSheetManager
+      // namespace={APP_NAME} // if not open shadowRoot, can add namespace scope
+      target={document.querySelector(APP_NAME).shadowRoot}
+    >
+      <Provider store={store}>
+        <h1>React Todo App</h1>
+        {count}
+        <Button>Normal</Button>
+        <Button primary>Primary</Button>
+        <Todo />
+      </Provider>
+    </StyleSheetManager>
   );
 };
 

@@ -9,7 +9,7 @@ class AppElement extends HTMLElement {
     super();
     this.app;
 
-    // this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' });
     const styleNode = document.createElement('style');
     styleNode.innerHTML = appStyles;
     this.styleNode = styleNode;
@@ -32,14 +32,14 @@ class AppElement extends HTMLElement {
   connectedCallback() {
     console.log('vue_todo_app: connectedCallback');
 
-    this.appendChild(this.styleNode);
+    this.shadowRoot.appendChild(this.styleNode);
     this.props = reactive({
       count: this.count,
     });
     this.app = createApp(() => h(App, this.props));
     this.app.use(store);
     this.app.mount(this.rootNode);
-    this.appendChild(this.rootNode);
+    this.shadowRoot.appendChild(this.rootNode);
   }
 
   disconnectedCallback() {
