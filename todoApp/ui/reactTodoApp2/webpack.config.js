@@ -39,7 +39,7 @@ module.exports = {
         './App': './src/bootstrap.js',
       },
       shared: {
-        react: { singleton: true },
+        react: { singleton: true, requiredVersion: "^17.0.2" },
         'react-dom': { singleton: true, requiredVersion: "^6.4.3" },
         'mobx-react': { singleton: true },
       },
